@@ -1,3 +1,8 @@
+-- Row Level Security Policies for UniLink
+-- Designed before Supabase initialization
+-- Policies assume auth.uid() will map to student_id/employer_id
+-- Final adjustments may be required after Supabase auth integration
+
 -- Enable Row Level Security on core tables
 
 ALTER TABLE public.student ENABLE ROW LEVEL SECURITY;
