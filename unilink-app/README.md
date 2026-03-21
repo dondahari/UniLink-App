@@ -23,7 +23,7 @@ UniLink is a platform designed to seamlessly connect university students with to
 - **Supabase Cloud Initializer**: The `.env` requires keys from a newly initialized Supabase Dashboard instance.
 - **Supabase Auth**: Wire up the visual `/login` and `/register` components to Supabase Auth handler endpoints for real user generation.
 - **Data Mutations**: Replace hardcoded UI arrays in the dashboard with live fetch logic reading from the Supabase tables (`public.person`, `public.application`, etc.).
-- **Row Level Security (RLS)**: Enforce PostgreSQL row-level security so that Employers can only see apps submitted to them, and Students can only view their own records.
+- **Row Level Security (RLS)**: Policies implemented, pending Supabase auth validation
 
 ## Running the Project Local
 
