@@ -1,10 +1,33 @@
 import { BookOpen, LogOut, Settings, User } from "lucide-react"
+import { createSupabaseServerClient } from "@/lib/supabase-server"
+import { logout } from "@/app/actions/auth"
 
-export default function DashboardLayout({
+export default async function DashboardLayout({
     children,
 }: {
     children: React.ReactNode
 }) {
+    const supabase = await createSupabaseServerClient()
+
+    const { data: { user } } = await supabase.auth.getUser()
+
+    // Fetch the person record to display the user's name
+    const { data: person } = user
+        ? await supabase
+            .from('person')
+            .select('full_name')
+            .eq('auth_user_id', user.id)
+            .single()
+        : { data: null }
+
+    const displayName = person?.full_name ?? user?.email ?? 'User'
+    const initials = displayName
+        .split(' ')
+        .map((n: string) => n[0])
+        .slice(0, 2)
+        .join('')
+        .toUpperCase()
+
     return (
         <div className="flex min-h-screen bg-neutral-50 flex-col md:flex-row">
             {/* Sidebar */}
@@ -16,6 +39,17 @@ export default function DashboardLayout({
                         </div>
                         <span className="text-xl font-bold tracking-tight text-neutral-900">UniLink</span>
                     </a>
+                </div>
+
+                {/* User avatar + name */}
+                <div className="flex items-center gap-3 px-4 py-4 border-b border-neutral-100">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-100 text-primary-700 text-sm font-semibold flex-shrink-0">
+                        {initials}
+                    </div>
+                    <div className="min-w-0">
+                        <p className="truncate text-sm font-medium text-neutral-900">{displayName}</p>
+                        <p className="truncate text-xs text-neutral-500">{user?.email}</p>
+                    </div>
                 </div>
 
                 <div className="flex-1 py-6 px-4 space-y-1">
@@ -41,10 +75,15 @@ export default function DashboardLayout({
                         <Settings className="w-4 h-4 mr-3" />
                         Settings
                     </a>
-                    <button className="w-full flex items-center px-3 py-2 text-sm font-medium rounded-md text-red-600 hover:bg-red-50 text-left">
-                        <LogOut className="w-4 h-4 mr-3" />
-                        Logout
-                    </button>
+                    <form action={logout}>
+                        <button
+                            type="submit"
+                            className="w-full flex items-center px-3 py-2 text-sm font-medium rounded-md text-red-600 hover:bg-red-50 text-left"
+                        >
+                            <LogOut className="w-4 h-4 mr-3" />
+                            Logout
+                        </button>
+                    </form>
                 </div>
             </aside>
 

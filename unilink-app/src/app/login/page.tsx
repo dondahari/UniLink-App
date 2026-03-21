@@ -1,9 +1,16 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
-import { BookOpen } from "lucide-react"
+import { BookOpen, AlertCircle } from "lucide-react"
+import { login } from "@/app/actions/auth"
 
-export default function LoginPage() {
+interface LoginPageProps {
+    searchParams: Promise<{ error?: string }>
+}
+
+export default async function LoginPage({ searchParams }: LoginPageProps) {
+    const { error } = await searchParams
+
     return (
         <div className="min-h-screen flex items-center justify-center bg-neutral-50 px-4">
             <div className="w-full max-w-md">
@@ -24,20 +31,28 @@ export default function LoginPage() {
                         </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">
-                        <div className="space-y-2">
-                            <label htmlFor="email" className="text-sm font-medium leading-none text-neutral-700">Email</label>
-                            <Input id="email" type="email" placeholder="name@edu.mail.com" required />
-                        </div>
-                        <div className="space-y-2">
-                            <div className="flex items-center justify-between">
-                                <label htmlFor="password" className="text-sm font-medium leading-none text-neutral-700">Password</label>
-                                <a href="#" className="text-sm font-medium text-primary-600 hover:text-primary-500">
-                                    Forgot password?
-                                </a>
+                        {error && (
+                            <div className="flex items-start gap-2 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
+                                <AlertCircle className="mt-0.5 h-4 w-4 flex-shrink-0" />
+                                <span>{decodeURIComponent(error)}</span>
                             </div>
-                            <Input id="password" type="password" required />
-                        </div>
-                        <Button className="w-full" size="lg">Sign In</Button>
+                        )}
+                        <form action={login} className="space-y-4">
+                            <div className="space-y-2">
+                                <label htmlFor="email" className="text-sm font-medium leading-none text-neutral-700">Email</label>
+                                <Input id="email" name="email" type="email" placeholder="name@edu.mail.com" required />
+                            </div>
+                            <div className="space-y-2">
+                                <div className="flex items-center justify-between">
+                                    <label htmlFor="password" className="text-sm font-medium leading-none text-neutral-700">Password</label>
+                                    <a href="#" className="text-sm font-medium text-primary-600 hover:text-primary-500">
+                                        Forgot password?
+                                    </a>
+                                </div>
+                                <Input id="password" name="password" type="password" required />
+                            </div>
+                            <Button type="submit" className="w-full" size="lg">Sign In</Button>
+                        </form>
                     </CardContent>
                     <CardFooter className="flex flex-col space-y-4">
                         <div className="text-sm text-center text-neutral-500">
