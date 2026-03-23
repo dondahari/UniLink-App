@@ -18,12 +18,15 @@ UniLink is a platform designed to seamlessly connect university students with to
 - **Database Architecture**: Evaluated original raw `queries.sql` representing a MySQL schema and mapped these to Supabase Postgres compatible structures utilizing `UUID` for keys. Found locally in `src/supabase/migrations/0000_initial_schema.sql`.
 - **API Prep**: Added the requisite API initialization scripts for `@supabase/ssr` (`lib/supabase.ts`) and `resend` (`lib/email.ts`).
 - **Source Control Safety**: Updated project-level `.gitignore` files to guarantee sensitive initialization SQL (`queries.sql`) and `.env` credentials are not pushed into Git tracking.
-
-### 🚧 Pending Setup (Backend & Auth Integration)
 - **Supabase Cloud Initializer**: The `.env` requires keys from a newly initialized Supabase Dashboard instance.
 - **Supabase Auth**: Wire up the visual `/login` and `/register` components to Supabase Auth handler endpoints for real user generation.
-- **Data Mutations**: Replace hardcoded UI arrays in the dashboard with live fetch logic reading from the Supabase tables (`public.person`, `public.application`, etc.).
 - **Row Level Security (RLS)**: Policies implemented, pending Supabase auth validation
+
+### 🚧 Pending Setup (Backend & Auth Integration)
+- **Application page**: Users can fill out an application form to posts skills and desired jobs or gigs.
+- **Data Mutations**: Replace hardcoded UI arrays in the dashboard with live fetch logic reading from the Supabase tables (`public.person`, `public.application`, etc.).
+- **Student Skills**: Being able to add skills and education of the student so employees can see the student skills.
+- **Live fetch for applications**: Employees can see students applications in the application page.
 
 ## Running the Project Local
 
