@@ -33,7 +33,7 @@ export default async function DashboardLayout({
             {/* Sidebar */}
             <aside className="w-full md:w-64 bg-white border-r border-neutral-200 flex-shrink-0 flex flex-col">
                 <div className="h-16 flex items-center px-6 border-b border-neutral-200">
-                    <a href="/" className="flex items-center gap-2">
+                    <a href="/dashboard" className="flex items-center gap-2">
                         <div className="bg-primary-600 rounded-md p-1">
                             <BookOpen className="w-5 h-5 text-white" />
                         </div>

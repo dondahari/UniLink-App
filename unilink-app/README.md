@@ -4,29 +4,25 @@ UniLink is a platform designed to seamlessly connect university students with to
 
 ## Development Progress
 
-### ✅ Completed Setup (Frontend & Architecture)
+### ✅ Finished
+- **User Creation**: Available through sign up (resolved Supabase fetch/API key issues).
+- **Dashboard Navigation**: Sidebar fully functional with correct UniLink logo redirect to `/dashboard`.
+- **Student Dashboard Pages**: Generated missing core pages (Applications, Recommended Jobs, Settings, and Profile).
+- **Interactive Profile Questionnaire**: Built a 9-step branching wizard ("Vibe" -> "Path" -> "Convergence") for first-timers to populate their skills dynamically.
+- **Framework Search**: Inline adding and deleting of top industry frameworks via a responsive autocomplete dropdown.
+- **PDF Resume Viewer**: Users can upload a PDF resume directly to their profile to be rendered instantly for employers.
 - **Next.js Framework**: Initialized `v15` app utilizing the React App Router, Server Components, and strict TypeScript rules.
 - **Tailwind Ecosystem**: Established global variables and styling matching a modern, dark-mode/light-mode ready aesthetic.
 - **Component Library**: Handbuilt a custom suite of reusable UI components (`Card`, `Input`, `Button`) mimicking enterprise UI designs.
-- **Core Views Built**:
-  - `app/page.tsx`: Primary Landing Page with unified dual-actor routing.
-  - `app/students/page.tsx`: Student value proposition and feature highlights.
-  - `app/employers/page.tsx`: Employer pipeline marketing and feature highlights.
-  - `app/login/page.tsx`: Standard auth layout.
-  - `app/register/page.tsx`: Interactive client-side component to toggle between rendering 'Student' or 'Employer' registration contexts.
-  - `app/dashboard/`: Responsive sidebar layout shell with sub-routing capabilities.
-- **Database Architecture**: Evaluated original raw `queries.sql` representing a MySQL schema and mapped these to Supabase Postgres compatible structures utilizing `UUID` for keys. Found locally in `src/supabase/migrations/0000_initial_schema.sql`.
-- **API Prep**: Added the requisite API initialization scripts for `@supabase/ssr` (`lib/supabase.ts`) and `resend` (`lib/email.ts`).
-- **Source Control Safety**: Updated project-level `.gitignore` files to guarantee sensitive initialization SQL (`queries.sql`) and `.env` credentials are not pushed into Git tracking.
-- **Supabase Cloud Initializer**: The `.env` requires keys from a newly initialized Supabase Dashboard instance.
-- **Supabase Auth**: Wire up the visual `/login` and `/register` components to Supabase Auth handler endpoints for real user generation.
-- **Row Level Security (RLS)**: Policies implemented, pending Supabase auth validation
 
-### 🚧 Pending Setup (Backend & Auth Integration)
+### 🚧 Needs Implementing
+- **Email Verification**: Email sent to user email after sign up.
+- **Password Management**: Reset password email flow.
 - **Application page**: Users can fill out an application form to posts skills and desired jobs or gigs.
 - **Data Mutations**: Replace hardcoded UI arrays in the dashboard with live fetch logic reading from the Supabase tables (`public.person`, `public.application`, etc.).
-- **Student Skills**: Being able to add skills and education of the student so employees can see the student skills.
 - **Live fetch for applications**: Employees can see students applications in the application page.
+- **Job Seeding**: Create fake business accounts & jobs to fill jobs page.
+- **Job Listing Page**: Create a jobs listing page.
 
 ## Running the Project Local
 
