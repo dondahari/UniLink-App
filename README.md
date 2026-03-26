@@ -26,8 +26,7 @@ UniLink is a platform designed to seamlessly connect university students with to
 
 ## Running the Project Local
 
-1. Move into the child directory: `cd unilink-app`
-2. Install dependencies (if you haven't): `npm install`
-3. Generate a `.env.local` to match `.env.example` using your Supabase credentials.
-4. Run the Dev Server: `npm run dev`
-5. Visit [http://localhost:3000](http://localhost:3000)
+1. Install dependencies (if you haven't): `npm install`
+2. Generate a `.env.local` to match `.env.example` using your Supabase credentials.
+3. Run the Dev Server: `npm run dev`
+4. Visit [http://localhost:3000](http://localhost:3000)
