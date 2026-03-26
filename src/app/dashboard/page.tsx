@@ -85,7 +85,17 @@ export default async function DashboardPage() {
 
             activeApplications = activeResult.count ?? 0
             interviewCount     = interviewResult.count ?? 0
-            recentApps         = (recentResult.data as Application[]) ?? []
+            
+            // Map the nested arrays from Supabase to single objects for the Application interface
+            recentApps = (recentResult.data as any[] ?? []).map(app => ({
+                ...app,
+                job_posting: Array.isArray(app.job_posting) ? {
+                    ...app.job_posting[0],
+                    employer: Array.isArray(app.job_posting[0]?.employer) 
+                        ? app.job_posting[0].employer[0] 
+                        : app.job_posting[0]?.employer
+                } : app.job_posting
+            })) as Application[]
         }
     }
 

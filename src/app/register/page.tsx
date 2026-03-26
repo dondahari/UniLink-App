@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -8,7 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter }
 import { BookOpen, AlertCircle } from "lucide-react"
 import { register } from "@/app/actions/auth"
 
-export default function RegisterPage() {
+function RegisterForm() {
     const [role, setRole] = useState<'student' | 'employer'>('student')
     const searchParams = useSearchParams()
     const error = searchParams.get('error')
@@ -106,5 +107,17 @@ export default function RegisterPage() {
                 </Card>
             </div>
         </div>
+    )
+}
+
+export default function RegisterPage() {
+    return (
+        <Suspense fallback={
+            <div className="min-h-screen flex items-center justify-center bg-neutral-50">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600"></div>
+            </div>
+        }>
+            <RegisterForm />
+        </Suspense>
     )
 }
