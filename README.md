@@ -14,9 +14,9 @@ UniLink is a platform designed to seamlessly connect university students with to
 - **Next.js Framework**: Initialized `v15` app utilizing the React App Router, Server Components, and strict TypeScript rules.
 - **Tailwind Ecosystem**: Established global variables and styling matching a modern, dark-mode/light-mode ready aesthetic.
 - **Component Library**: Handbuilt a custom suite of reusable UI components (`Card`, `Input`, `Button`) mimicking enterprise UI designs.
+- **Email Verification**: Email sent to user email after sign up.
 
 ### 🚧 Needs Implementing
-- **Email Verification**: Email sent to user email after sign up.
 - **Password Management**: Reset password email flow.
 - **Application page**: Users can fill out an application form to posts skills and desired jobs or gigs.
 - **Data Mutations**: Replace hardcoded UI arrays in the dashboard with live fetch logic reading from the Supabase tables (`public.person`, `public.application`, etc.).
