@@ -33,10 +33,15 @@ export async function register(formData: FormData) {
     // Create the Supabase Auth user.
     // A database trigger (0003_user_trigger.sql) automatically creates the
     // person + student/employer records, so no manual inserts are needed here.
+    const siteUrl = process.env.SITE_URL ?? 'http://localhost:3000';
+
     const { data: authData, error: authError } = await supabase.auth.signUp({
         email,
         password,
-        options: { data: { full_name: fullName, role } },
+        options: {
+            data: { full_name: fullName, role },
+            emailRedirectTo: `${siteUrl}/auth/callback`,
+        },
     });
 
     if (authError) {
