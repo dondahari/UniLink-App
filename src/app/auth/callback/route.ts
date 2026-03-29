@@ -1,15 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createSupabaseServerClient } from '@/lib/supabase-server';
 
-/
- * Auth Callback Handler
+
+// * Auth Callback Handler
  
- Flow:
-    Email link clicked
-     → Supabase redirects to /auth/callback?code=xxxx
-     → We exchange the code for a session (sets cookies)
-     → Redirect to /dashboard (or /login on failure)
- /
+ //Flow:
+    //Email link clicked
+    //→ Supabase redirects to /auth/callback?code=xxxx
+    // → We exchange the code for a session (sets cookies)
+    // → Redirect to /dashboard (or /login on failure)
+ 
 export async function GET(request: NextRequest) {
     const { searchParams, origin } = new URL(request.url);
     const code = searchParams.get('code');
