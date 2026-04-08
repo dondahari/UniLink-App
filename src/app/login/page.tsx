@@ -40,7 +40,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
                         <form action={login} className="space-y-4">
                             <div className="space-y-2">
                                 <label htmlFor="email" className="text-sm font-medium leading-none text-neutral-700">Email</label>
-                                <Input id="email" name="email" type="email" placeholder="name@edu.mail.com" required />
+                                <Input id="email" name="email" type="email" placeholder="name@example.com" required />
                             </div>
                             <div className="space-y-2">
                                 <div className="flex items-center justify-between">

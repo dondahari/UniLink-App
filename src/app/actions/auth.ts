@@ -7,7 +7,7 @@ import { createSupabaseServerClient } from '@/lib/supabase-server';
 export async function login(formData: FormData) {
     const supabase = await createSupabaseServerClient();
 
-    const { error } = await supabase.auth.signInWithPassword({
+    const { data: authData, error } = await supabase.auth.signInWithPassword({
         email: formData.get('email') as string,
         password: formData.get('password') as string,
     });
@@ -16,8 +16,15 @@ export async function login(formData: FormData) {
         redirect('/login?error=' + encodeURIComponent(error.message));
     }
 
+    const role = authData?.user?.user_metadata?.role || 'student';
+
     revalidatePath('/', 'layout');
-    redirect('/dashboard');
+    
+    if (role === 'employer') {
+        redirect('/employer');
+    } else {
+        redirect('/dashboard');
+    }
 }
 
 export async function register(formData: FormData) {
@@ -58,7 +65,12 @@ export async function register(formData: FormData) {
     }
 
     revalidatePath('/', 'layout');
-    redirect('/dashboard');
+    
+    if (role === 'employer') {
+        redirect('/employer');
+    } else {
+        redirect('/dashboard');
+    }
 }
 
 export async function logout() {

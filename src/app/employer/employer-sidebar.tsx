@@ -1,0 +1,112 @@
+'use client'
+
+import { useState } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { 
+    LayoutDashboard, 
+    Briefcase, 
+    Users, 
+    Settings, 
+    LogOut, 
+    Building2,
+    Target,
+    ChevronLeft,
+    ChevronRight,
+    User
+} from 'lucide-react'
+import { logout } from '@/app/actions/auth'
+
+function NavLink({ href, children, isCollapsed, icon }: { href: string, children: React.ReactNode, isCollapsed: boolean, icon?: React.ReactNode }) {
+    const pathname = usePathname()
+    const isActive = pathname === href || (href !== '/employer' && pathname.startsWith(href))
+
+    const activeClass = "bg-primary-50 text-primary-700"
+    const inactiveClass = "text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900"
+
+    return (
+        <Link href={href} className={`group relative flex items-center px-3 py-2 text-sm font-medium rounded-md min-w-max ${isCollapsed ? 'justify-center' : ''} ${isActive ? activeClass : inactiveClass}`}>
+            {icon && <span className={`flex-shrink-0 ${isCollapsed ? '' : 'mr-3'}`}>{icon}</span>}
+            {!isCollapsed && <span>{children}</span>}
+
+            {/* Collapsed Hover Tooltip */}
+            {isCollapsed && (
+                <div className="absolute left-full ml-4 px-2.5 py-1.5 bg-neutral-900 text-white text-xs font-semibold rounded-md opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all pointer-events-none whitespace-nowrap z-50 shadow-md border border-neutral-700">
+                    {children}
+                </div>
+            )}
+        </Link>
+    )
+}
+
+export function EmployerSidebar({ initials, displayName, email }: { initials: string, displayName: string, email: string | undefined }) {
+    const [isCollapsed, setIsCollapsed] = useState(false)
+
+    return (
+        <aside 
+            className={`bg-white border-r border-neutral-200 flex-shrink-0 flex flex-col transition-all duration-300 ease-in-out relative z-50 ${isCollapsed ? 'w-20' : 'w-full md:w-64'}`}
+        >
+            {/* Collapse Toggle Button */}
+            <button
+                onClick={() => setIsCollapsed(!isCollapsed)}
+                className="hidden md:flex absolute -right-3 top-20 bg-white border border-neutral-200 shadow-sm w-6 h-6 rounded-full items-center justify-center text-neutral-500 hover:text-primary-600 hover:border-primary-300 transition-colors z-[60]"
+            >
+                {isCollapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
+            </button>
+
+            <div className="h-16 flex items-center px-6 border-b border-neutral-200 overflow-hidden">
+                <a href="/employer" className="flex items-center gap-2 min-w-max">
+                    <div className="bg-neutral-900 rounded-md p-1 flex-shrink-0">
+                        <Building2 className="w-5 h-5 text-white" />
+                    </div>
+                    {!isCollapsed && <span className="text-xl font-bold tracking-tight text-neutral-900 ml-1">Workspace</span>}
+                </a>
+            </div>
+
+            {/* User avatar + name */}
+            <div className={`flex items-center px-4 py-4 border-b border-neutral-100 overflow-hidden ${isCollapsed ? 'justify-center' : 'gap-3'}`}>
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-100 text-neutral-700 text-sm font-semibold flex-shrink-0 border border-neutral-200">
+                    {initials}
+                </div>
+                {!isCollapsed && (
+                    <div className="min-w-0">
+                        <p className="truncate text-sm font-medium text-neutral-900">{displayName}</p>
+                        <p className="truncate text-xs text-neutral-500">{email}</p>
+                    </div>
+                )}
+            </div>
+
+            <div className={`flex-1 py-6 px-4 space-y-1 ${isCollapsed ? 'overflow-visible' : 'overflow-y-auto overflow-x-hidden'}`}>
+                <nav className="space-y-1">
+                    <NavLink href="/employer" isCollapsed={isCollapsed} icon={<LayoutDashboard className="w-4 h-4" />}>Overview</NavLink>
+                    <NavLink href="/employer/postings" isCollapsed={isCollapsed} icon={<Briefcase className="w-4 h-4" />}>My Postings</NavLink>
+                    <NavLink href="/employer/candidates" isCollapsed={isCollapsed} icon={<Users className="w-4 h-4" />}>Candidates</NavLink>
+                    <NavLink href="/employer/bounties" isCollapsed={isCollapsed} icon={<Target className="w-4 h-4 text-emerald-600" />}>Bounties Overview</NavLink>
+                </nav>
+            </div>
+
+            <div className={`p-4 border-t border-neutral-200 space-y-1 ${isCollapsed ? 'overflow-visible' : 'overflow-hidden'}`}>
+                <a href="/employer/profile" className={`group relative flex items-center px-3 py-2 text-sm font-medium rounded-md text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 min-w-max ${isCollapsed ? 'justify-center' : ''}`}>
+                    <User className={`w-4 h-4 flex-shrink-0 ${isCollapsed ? '' : 'mr-3'}`} />
+                    {!isCollapsed && <span>Company Profile</span>}
+                    {isCollapsed && <div className="absolute left-full ml-4 px-2.5 py-1.5 bg-neutral-900 text-white text-xs font-semibold rounded-md opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all pointer-events-none whitespace-nowrap z-50 shadow-md border border-neutral-700">Company Profile</div>}
+                </a>
+                <a href="/employer/settings" className={`group relative flex items-center px-3 py-2 text-sm font-medium rounded-md text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900 min-w-max ${isCollapsed ? 'justify-center' : ''}`}>
+                    <Settings className={`w-4 h-4 flex-shrink-0 ${isCollapsed ? '' : 'mr-3'}`} />
+                    {!isCollapsed && <span>Settings</span>}
+                    {isCollapsed && <div className="absolute left-full ml-4 px-2.5 py-1.5 bg-neutral-900 text-white text-xs font-semibold rounded-md opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all pointer-events-none whitespace-nowrap z-50 shadow-md border border-neutral-700">Settings</div>}
+                </a>
+                <form action={logout}>
+                    <button
+                        type="submit"
+                        className={`group relative w-full flex items-center px-3 py-2 text-sm font-medium rounded-md text-red-600 hover:bg-red-50 text-left min-w-max ${isCollapsed ? 'justify-center' : ''}`}
+                    >
+                        <LogOut className={`w-4 h-4 flex-shrink-0 ${isCollapsed ? '' : 'mr-3'}`} />
+                        {!isCollapsed && <span>Logout</span>}
+                        {isCollapsed && <div className="absolute left-full ml-4 px-2.5 py-1.5 bg-neutral-900 text-white text-xs font-semibold rounded-md opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all pointer-events-none whitespace-nowrap z-50 shadow-md border border-neutral-700">Logout</div>}
+                    </button>
+                </form>
+            </div>
+        </aside>
+    )
+}

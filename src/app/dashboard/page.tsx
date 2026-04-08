@@ -115,6 +115,12 @@ export default async function DashboardPage() {
                     <h1 className="text-3xl font-bold tracking-tight text-neutral-900">Dashboard</h1>
                     <p className="text-neutral-500 mt-1">Welcome back, {firstName}. Here&apos;s what&apos;s happening today.</p>
                 </div>
+                <a 
+                    href="/dashboard/all-jobs" 
+                    className="inline-flex items-center justify-center rounded-md bg-neutral-900 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:ring-offset-2"
+                >
+                    Browse All Jobs
+                </a>
             </div>
 
             {/* Stats */}
