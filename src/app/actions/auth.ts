@@ -79,3 +79,34 @@ export async function logout() {
     revalidatePath('/', 'layout');
     redirect('/');
 }
+
+export async function requestPasswordReset(formData: FormData) {
+  const supabase = await createSupabaseServerClient();
+  const email = (formData.get('email') as string).trim();
+  const siteUrl = process.env.SITE_URL ?? 'http://localhost:3000';
+
+  const { error } = await supabase.auth.resetPasswordForEmail(email, {
+    redirectTo: `${siteUrl}/auth/callback?next=/reset-password`,
+  });
+
+  if (error) {
+    redirect('/forgot-password?error=' + encodeURIComponent(error.message));
+  }
+
+  // Always redirect to a "check your email" screen doesn't reveal whether
+  // the address exists in the system
+  redirect('/forgot-password?sent=true');
+}
+
+export async function updatePassword(formData: FormData) {
+  const supabase = await createSupabaseServerClient();
+  const password = formData.get('password') as string;
+
+  const { error } = await supabase.auth.updateUser({ password });
+
+  if (error) {
+    redirect('/reset-password?error=' + encodeURIComponent(error.message));
+  }
+
+  redirect('/login?message=' + encodeURIComponent('Password updated. Please sign in.'));
+}
