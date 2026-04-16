@@ -12,6 +12,7 @@ UniLink is a platform designed to seamlessly connect university students with to
 - **Component Library**: Handbuilt a custom suite of reusable UI components (`Card`, `Input`, `Button`) mimicking enterprise UI designs.
 - **User Creation & Routing**: Active Role-Based Access Control (RBAC). Upon login, the server natively checks user metadata to smartly map them directly to `/dashboard` (Students) or `/employer` (Employer SaaS), completely isolating functionality.
 - **Database Seeding**: Hard-written `seed_jobs.sql` payload fully mimicking 29 dynamic jobs spanning 11 test employers across varying domains, injecting detailed rich text descriptions, payout variables, and contract lengths.
+- - **Password Management**: Reset password email flow.
 
 #### Student Hub
 - **Interactive Profile Questionnaire**: Built a 9-step branching wizard ("Vibe" -> "Path" -> "Convergence") for first-timers to populate their skills dynamically.
@@ -27,7 +28,6 @@ UniLink is a platform designed to seamlessly connect university students with to
 - **Storage Avatars**: Full pipeline engineered allowing `.jpg`/`.png` file rendering directly inside the profile settings mapping cleanly into a native explicit `employer-logos` Supabase Bucket.
 
 ### 🚧 Needs Implementing
-- **Password Management**: Reset password email flow.
 - **Advanced Filtering Mechanics**: Hook custom search parameters strictly dynamically against queried items vs local JSON objects.
 - **Live Student Applications**: Finalize the true data-insertion phase of the student hitting "Apply" inside the Tinder-UI seamlessly porting to the employer's Candidate view.
 - **Live Search / Connections**: Enable active real-time messaging bindings between mapped students/employers natively interacting.
