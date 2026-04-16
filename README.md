@@ -12,7 +12,7 @@ UniLink is a platform designed to seamlessly connect university students with to
 - **Component Library**: Handbuilt a custom suite of reusable UI components (`Card`, `Input`, `Button`) mimicking enterprise UI designs.
 - **User Creation & Routing**: Active Role-Based Access Control (RBAC). Upon login, the server natively checks user metadata to smartly map them directly to `/dashboard` (Students) or `/employer` (Employer SaaS), completely isolating functionality.
 - **Database Seeding**: Hard-written `seed_jobs.sql` payload fully mimicking 29 dynamic jobs spanning 11 test employers across varying domains, injecting detailed rich text descriptions, payout variables, and contract lengths.
-- - **Password Management**: Reset password email flow.
+- **Password Management**: Reset password email flow.
 
 #### Student Hub
 - **Interactive Profile Questionnaire**: Built a 9-step branching wizard ("Vibe" -> "Path" -> "Convergence") for first-timers to populate their skills dynamically.
