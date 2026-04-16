@@ -1,7 +1,17 @@
 import { createSupabaseServerClient } from "@/lib/supabase-server"
 import { Briefcase, Building, DollarSign, MapPin, ExternalLink } from "lucide-react"
 
-async function getSavedJobs() {
+interface SavedJob {
+    save_id: string;
+    job_id: string;
+    job_title: string;
+    company_name: string;
+    location: string;
+    pay_rate: string;
+    experience_level: string;
+}
+
+async function getSavedJobs(): Promise<SavedJob[]> {
     const supabase = await createSupabaseServerClient()
     const { data: { user } } = await supabase.auth.getUser()
     
@@ -77,7 +87,7 @@ export default async function SavedJobsPage() {
                 </div>
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                    {savedJobs.map((job) => (
+                    {savedJobs.map((job: SavedJob) => (
                         <div key={job.save_id} className="bg-white rounded-xl shadow-sm border border-neutral-200 border-t-4 border-t-emerald-500 p-6 flex flex-col h-full hover:shadow-md hover:border-neutral-300 hover:border-t-emerald-600 transition-all relative group">
                             
                             <div className="mb-4 pr-6 flex-1">
