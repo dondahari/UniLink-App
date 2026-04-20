@@ -16,7 +16,7 @@ export default function EmployersPage() {
                     <nav className="hidden md:flex gap-6 text-sm font-medium text-neutral-600">
                         <a href="/students" className="hover:text-primary-600 transition-colors">For Students</a>
                         <a href="/employers" className="text-primary-600 font-semibold transition-colors">For Employers</a>
-                        <a href="/jobs" className="hover:text-primary-600 transition-colors">Jobs</a>
+                        <a href="/#browse-jobs" className="hover:text-primary-600 transition-colors">Jobs</a>
                         <a href="/about" className="hover:text-primary-600 transition-colors">About</a>
                     </nav>
                     <div className="flex items-center gap-4">
