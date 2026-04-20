@@ -43,7 +43,7 @@ const VALUES = [
 ]
 
 const TEAM = [
-    { initials: "LD", name: "Liav Dahari", role: "Lead Full Stack Engineer", school: "Florida Atlantic University" },
+    { initials: "LD", name: "Liav Dahari", role: "Full Stack Engineer", school: "Florida Atlantic University" },
     { initials: "SG", name: "Sergio Gonzalez Rodriguez", role: "Full Stack Engineer", school: "Florida Atlantic University" },
     { initials: "MG", name: "Mykyta Garkusha", role: "Full Stack Engineer", school: "Florida Atlantic University" },
     { initials: "GM", name: "Guilmar Morales", role: "Full Stack Engineer", school: "Florida Atlantic University" },
