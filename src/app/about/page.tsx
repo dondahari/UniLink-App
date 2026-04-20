@@ -150,7 +150,7 @@ export default function AboutPage() {
                                         </div>
                                         <div>
                                             <p className="font-bold text-neutral-900">UniLink</p>
-                                            <p className="text-xs text-neutral-400">Est. 2025 · Boca Raton, FL</p>
+                                            <p className="text-xs text-neutral-400">Est. 2026 · Boca Raton, FL</p>
                                         </div>
                                     </div>
                                     <ul className="space-y-4">
@@ -240,7 +240,7 @@ export default function AboutPage() {
                                 </Button>
                             </a>
                             <a href="/#browse-jobs">
-                                <Button size="lg" variant="outline" className="h-12 px-8 text-base font-semibold border-white/20 text-white bg-transparent hover:bg-white/10 transition-colors">
+                                <Button size="lg" variant="outline" className="h-12 px-8 text-base font-semibold border-black/20 text-black bg-transparent hover:bg-white/10 transition-colors">
                                     Browse Jobs
                                     <ChevronRight className="w-4 h-4 ml-2" />
                                 </Button>
