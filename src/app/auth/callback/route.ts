@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
 
   const supabase = await createSupabaseServerClient();
 
-  if (token_hash && type) {
+  if (token_hash && type == 'recovery') {
     // Password reset (and email change) flow
     const { error } = await supabase.auth.verifyOtp({ token_hash, type: type as any });
     if (!error) {
