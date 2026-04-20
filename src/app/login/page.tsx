@@ -16,9 +16,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
             <div className="w-full max-w-md">
                 <div className="flex justify-center mb-8">
                     <a href="/" className="flex items-center gap-2">
-                        <div className="bg-primary-600 rounded-lg p-1.5">
-                            <BookOpen className="w-6 h-6 text-white" />
-                        </div>
+                        <img src="/favicons/unilink logo no words.png" alt="UniLink Logo" className="w-8 h-8" />
                         <span className="text-2xl font-bold tracking-tight text-neutral-900">UniLink</span>
                     </a>
                 </div>

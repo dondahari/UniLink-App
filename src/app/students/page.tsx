@@ -8,9 +8,7 @@ export default function StudentsPage() {
             <header className="sticky top-0 z-50 w-full border-b border-neutral-200 bg-white/80 backdrop-blur-md">
                 <div className="container mx-auto px-4 h-16 flex items-center justify-between">
                     <a href="/" className="flex items-center gap-2">
-                        <div className="bg-primary-600 rounded-lg p-1.5">
-                            <BookOpen className="w-5 h-5 text-white" />
-                        </div>
+                        <img src="/favicons/unilink logo no words.png" alt="UniLink Logo" className="w-8 h-8" />
                         <span className="text-xl font-bold tracking-tight">UniLink</span>
                     </a>
                     <nav className="hidden md:flex gap-6 text-sm font-medium text-neutral-600">
@@ -167,7 +165,7 @@ export default function StudentsPage() {
             <footer className="bg-white border-t border-neutral-200 py-12">
                 <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
                     <div className="flex items-center gap-2">
-                        <BookOpen className="w-5 h-5 text-primary-600" />
+                        <img src="/favicons/unilink logo no words.png" alt="UniLink Logo" className="w-6 h-6 object-contain" />
                         <span className="text-lg font-bold text-neutral-900">UniLink App</span>
                     </div>
                     <p className="text-sm text-neutral-500">© 2026 UniLink App. All rights reserved.</p>

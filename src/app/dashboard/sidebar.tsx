@@ -28,9 +28,7 @@ export function Sidebar({ initials, displayName, email }: SidebarProps) {
 
             <div className="h-16 flex items-center px-6 border-b border-neutral-200 overflow-hidden">
                 <a href="/dashboard" className="flex items-center gap-2 min-w-max">
-                    <div className="bg-primary-600 rounded-md p-1 flex-shrink-0">
-                        <BookOpen className="w-5 h-5 text-white" />
-                    </div>
+                    <img src="/favicons/unilink logo no words.png" alt="UniLink Logo" className="w-8 h-8 flex-shrink-0" />
                     {!isCollapsed && <span className="text-xl font-bold tracking-tight text-neutral-900 ml-1">UniLink</span>}
                 </a>
             </div>

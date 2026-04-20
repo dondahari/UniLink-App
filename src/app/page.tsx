@@ -60,9 +60,7 @@ export default async function Home() {
       <header className="sticky top-0 z-50 w-full border-b border-neutral-200 bg-white/80 backdrop-blur-md">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="bg-primary-600 rounded-lg p-1.5">
-              <BookOpen className="w-5 h-5 text-white" />
-            </div>
+            <img src="/favicons/unilink logo no words.png" alt="UniLink Logo" className="w-8 h-8" />
             <span className="text-xl font-bold tracking-tight">UniLink</span>
           </div>
           <nav className="hidden md:flex gap-6 text-sm font-medium text-neutral-600">
@@ -123,7 +121,7 @@ export default async function Home() {
               <div className="bg-white p-8 rounded-2xl shadow-sm border border-neutral-200 flex flex-col items-center text-center hover:shadow-md transition-shadow">
                 <div className="bg-primary-50 text-primary-600 p-4 rounded-full mb-6 relative">
                   <div className="absolute inset-0 bg-primary-100 animate-ping rounded-full opacity-20"></div>
-                  <BookOpen className="w-8 h-8 relative z-10" />
+                  <img src="/favicons/unilink logo no words.png" alt="Feature" className="w-8 h-8 relative z-10" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">Campus Integrated</h3>
                 <p className="text-neutral-600">Connect directly using your .edu email. We sync your major, skillset, and graduation path.</p>
@@ -184,7 +182,7 @@ export default async function Home() {
       <footer className="bg-white border-t border-neutral-200 py-12">
         <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2">
-            <BookOpen className="w-5 h-5 text-primary-600" />
+            <img src="/favicons/unilink logo no words.png" alt="UniLink Logo" className="w-6 h-6 object-contain" />
             <span className="text-lg font-bold text-neutral-900">UniLink App</span>
           </div>
           <p className="text-sm text-neutral-500">© 2026 UniLink App. All rights reserved.</p>

@@ -11,6 +11,8 @@ import {
     Building2,
     ArrowRight,
     Star,
+    Crosshair,
+    Target,
 } from "lucide-react"
 
 const VALUES = [
@@ -41,18 +43,14 @@ const VALUES = [
 ]
 
 const TEAM = [
-    { initials: "PB", name: "Phoenix B.", role: "Founder & CEO", school: "Florida Atlantic University" },
-    { initials: "AK", name: "Alex K.", role: "Head of Product", school: "University of Florida" },
-    { initials: "JR", name: "Jamie R.", role: "Lead Engineer", school: "Georgia Tech" },
-    { initials: "ML", name: "Maya L.", role: "Head of Employer Relations", school: "FSU" },
+    { initials: "LD", name: "Liav Dahari", role: "Lead Full Stack Engineer", school: "Florida Atlantic University" },
+    { initials: "SG", name: "Sergio Gonzalez Rodriguez", role: "Full Stack Engineer", school: "Florida Atlantic University" },
+    { initials: "MG", name: "Mykyta Garkusha", role: "Full Stack Engineer", school: "Florida Atlantic University" },
+    { initials: "GM", name: "Guilmar Morales", role: "Full Stack Engineer", school: "Florida Atlantic University" },
+    { initials: "CF", name: "Caio Fernandes", role: "Full Stack Engineer", school: "Florida Atlantic University" },
 ]
 
-const STATS = [
-    { value: "500+", label: "Active Job Listings" },
-    { value: "2,000+", label: "Student Profiles" },
-    { value: "120+", label: "Verified Employers" },
-    { value: "94%", label: "Satisfaction Rate" },
-]
+
 
 export default function AboutPage() {
     return (
@@ -62,9 +60,7 @@ export default function AboutPage() {
             <header className="sticky top-0 z-50 w-full border-b border-neutral-200 bg-white/80 backdrop-blur-md">
                 <div className="container mx-auto px-4 h-16 flex items-center justify-between">
                     <a href="/" className="flex items-center gap-2">
-                        <div className="bg-primary-600 rounded-lg p-1.5">
-                            <BookOpen className="w-5 h-5 text-white" />
-                        </div>
+                        <img src="/favicons/unilink logo no words.png" alt="UniLink Logo" className="w-8 h-8" />
                         <span className="text-xl font-bold tracking-tight">UniLink</span>
                     </a>
                     <nav className="hidden md:flex gap-6 text-sm font-medium text-neutral-600">
@@ -97,7 +93,7 @@ export default function AboutPage() {
 
                         <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-6 leading-[1.1]">
                             Bridging campus talent<br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-teal-400">
+                            <span className="text-indigo-400">
                                 with real opportunity.
                             </span>
                         </h1>
@@ -108,17 +104,6 @@ export default function AboutPage() {
                     </div>
                 </section>
 
-                {/* Stats banner */}
-                <section className="relative -mt-12 z-20 container mx-auto px-4 max-w-5xl">
-                    <div className="bg-white rounded-2xl shadow-xl border border-neutral-200 grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-neutral-100 overflow-hidden">
-                        {STATS.map((stat) => (
-                            <div key={stat.label} className="flex flex-col items-center justify-center py-8 px-6 text-center">
-                                <span className="text-3xl font-extrabold text-neutral-900 tracking-tight mb-1">{stat.value}</span>
-                                <span className="text-xs font-semibold text-neutral-400 uppercase tracking-widest">{stat.label}</span>
-                            </div>
-                        ))}
-                    </div>
-                </section>
 
                 {/* Mission */}
                 <section className="py-28 bg-white">
@@ -142,12 +127,9 @@ export default function AboutPage() {
 
                             {/* Visual card */}
                             <div className="relative">
-                                <div className="absolute inset-0 bg-gradient-to-br from-primary-100 to-teal-50 transform rotate-2 rounded-3xl" />
                                 <div className="relative bg-white rounded-2xl border border-neutral-200 shadow-lg p-8 transform -rotate-1 hover:rotate-0 transition-all duration-500">
                                     <div className="flex items-center gap-3 mb-6 pb-6 border-b border-neutral-100">
-                                        <div className="bg-primary-600 rounded-lg p-2">
-                                            <BookOpen className="w-5 h-5 text-white" />
-                                        </div>
+                                        <img src="/favicons/unilink logo no words.png" alt="UniLink Logo" className="w-8 h-8" />
                                         <div>
                                             <p className="font-bold text-neutral-900">UniLink</p>
                                             <p className="text-xs text-neutral-400">Est. 2026 · Boca Raton, FL</p>
@@ -155,9 +137,9 @@ export default function AboutPage() {
                                     </div>
                                     <ul className="space-y-4">
                                         {[
-                                            { icon: GraduationCap, text: "2,000+ verified student profiles" },
-                                            { icon: Building2, text: "120+ employer partners nationwide" },
-                                            { icon: Users, text: "Serving 15+ university campuses" },
+                                            { icon: Zap, text: "Fast-track applications with real employers" },
+                                            { icon: ShieldCheck, text: "Exclusive to vetted students & employers" },
+                                            { icon: Globe, text: "Leveling the field for early-career roles" },
                                         ].map(({ icon: Icon, text }) => (
                                             <li key={text} className="flex items-center gap-3 text-sm font-medium text-neutral-700">
                                                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center">
@@ -195,6 +177,86 @@ export default function AboutPage() {
                     </div>
                 </section>
 
+                {/* What we offer */}
+                <section className="py-24 bg-white border-t border-neutral-100">
+                    <div className="container mx-auto px-4 max-w-6xl">
+                        <div className="text-center mb-16 max-w-2xl mx-auto">
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-neutral-900 tracking-tight mb-4">What we offer Students</h2>
+                            <p className="text-neutral-500 text-lg">How we're redefining the early-career hustle, leaving traditional job boards behind.</p>
+                        </div>
+
+                        <div className="grid md:grid-cols-3 gap-8">
+                            <div className="bg-neutral-50 rounded-2xl p-8 border border-neutral-100 hover:shadow-md transition-shadow">
+                                <div className="w-12 h-12 bg-primary-100 text-primary-600 rounded-xl flex items-center justify-center mb-6">
+                                    <Crosshair className="w-6 h-6" />
+                                </div>
+                                <h3 className="text-xl font-bold text-neutral-900 mb-3">Campus Gigs</h3>
+                                <p className="text-neutral-600 leading-relaxed">
+                                    Don't have the time for a full-time role? Pick up short-term <strong>Gigs</strong> straight from employers. Earn cash, build your portfolio, and gain real-world experience on your own time.
+                                </p>
+                            </div>
+                            <div className="bg-neutral-50 rounded-2xl p-8 border border-neutral-100 hover:shadow-md transition-shadow">
+                                <div className="w-12 h-12 bg-teal-100 text-teal-600 rounded-xl flex items-center justify-center mb-6">
+                                    <Users className="w-6 h-6" />
+                                </div>
+                                <h3 className="text-xl font-bold text-neutral-900 mb-3">Student-Centric Network</h3>
+                                <p className="text-neutral-600 leading-relaxed">
+                                    Platforms like LinkedIn cater to seniors with decades of experience. UniLink is built exclusively for you. We skip the noise and connect you with employers who want to hire emerging talent.
+                                </p>
+                            </div>
+                            <div className="bg-neutral-50 rounded-2xl p-8 border border-neutral-100 hover:shadow-md transition-shadow">
+                                <div className="w-12 h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center mb-6">
+                                    <ShieldCheck className="w-6 h-6" />
+                                </div>
+                                <h3 className="text-xl font-bold text-neutral-900 mb-3">Verified Ecosystem</h3>
+                                <p className="text-neutral-600 leading-relaxed">
+                                    No scam postings or MLM schemes like you often find on massive job boards. Every student is verified with a .edu email, and every employer is vetted.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* What we offer Employers */}
+                <section className="py-24 bg-neutral-50 border-t border-neutral-100">
+                    <div className="container mx-auto px-4 max-w-6xl">
+                        <div className="text-center mb-16 max-w-2xl mx-auto">
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-neutral-900 tracking-tight mb-4">What we offer Employers</h2>
+                            <p className="text-neutral-500 text-lg">Stop paying for overpriced campus recruiting trips. Connect with top university talent digitally year-round.</p>
+                        </div>
+
+                        <div className="grid md:grid-cols-3 gap-8">
+                            <div className="bg-white rounded-2xl p-8 border border-neutral-100 hover:shadow-md transition-shadow">
+                                <div className="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center mb-6">
+                                    <Building2 className="w-6 h-6" />
+                                </div>
+                                <h3 className="text-xl font-bold text-neutral-900 mb-3">Direct Campus Access</h3>
+                                <p className="text-neutral-600 leading-relaxed">
+                                    Why wait for a career fair? UniLink gives you a direct pipeline to verified students actively looking for internships, gigs, and entry-level roles.
+                                </p>
+                            </div>
+                            <div className="bg-white rounded-2xl p-8 border border-neutral-100 hover:shadow-md transition-shadow">
+                                <div className="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center mb-6">
+                                    <Target className="w-6 h-6" />
+                                </div>
+                                <h3 className="text-xl font-bold text-neutral-900 mb-3">Skill-First Sourcing</h3>
+                                <p className="text-neutral-600 leading-relaxed">
+                                    Filter candidates by specific majors, completed courses, and technical skills. You get highly targeted matches so you don't waste time on unqualified applicants.
+                                </p>
+                            </div>
+                            <div className="bg-white rounded-2xl p-8 border border-neutral-100 hover:shadow-md transition-shadow">
+                                <div className="w-12 h-12 bg-teal-100 text-teal-600 rounded-xl flex items-center justify-center mb-6">
+                                    <Zap className="w-6 h-6" />
+                                </div>
+                                <h3 className="text-xl font-bold text-neutral-900 mb-3">Post Gigs &amp; Bounties</h3>
+                                <p className="text-neutral-600 leading-relaxed">
+                                    Need a short-term project done fast? Post campus gigs to offload work while testing potential candidates in the real world before committing to a full-time hire.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 {/* Team */}
                 <section className="py-24 bg-white border-t border-neutral-100">
                     <div className="container mx-auto px-4 max-w-5xl">
@@ -207,12 +269,9 @@ export default function AboutPage() {
                             <p className="text-neutral-500 text-lg">Former students who lived the problem and built the solution.</p>
                         </div>
 
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
                             {TEAM.map((member) => (
                                 <div key={member.name} className="bg-neutral-50 rounded-2xl border border-neutral-200 p-6 text-center hover:bg-white hover:shadow-md transition-all duration-300">
-                                    <div className="w-16 h-16 rounded-full bg-neutral-200 text-neutral-600 font-bold text-xl flex items-center justify-center mx-auto mb-4">
-                                        {member.initials}
-                                    </div>
                                     <h4 className="font-bold text-neutral-900 text-base mb-0.5">{member.name}</h4>
                                     <p className="text-sm font-semibold text-primary-600 mb-1">{member.role}</p>
                                     <p className="text-xs text-neutral-400">{member.school}</p>
@@ -254,7 +313,7 @@ export default function AboutPage() {
             <footer className="bg-white border-t border-neutral-200 py-12">
                 <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
                     <div className="flex items-center gap-2">
-                        <BookOpen className="w-5 h-5 text-primary-600" />
+                        <img src="/favicons/unilink logo no words.png" alt="UniLink Logo" className="w-6 h-6 object-contain" />
                         <span className="text-lg font-bold text-neutral-900">UniLink App</span>
                     </div>
                     <p className="text-sm text-neutral-500">© 2026 UniLink App. All rights reserved.</p>
