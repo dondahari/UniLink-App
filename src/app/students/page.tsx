@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { BookOpen, Search, FileText, CheckCircle2, ChevronRight, Zap } from "lucide-react"
+import { BookOpen, Search, FileText, CheckCircle2, ChevronRight, Zap, Crosshair, Users, ShieldCheck } from "lucide-react"
 
 export default function StudentsPage() {
     return (
@@ -94,8 +94,48 @@ export default function StudentsPage() {
                     </div>
                 </section>
 
+                {/* What we offer */}
+                <section className="py-24 bg-neutral-50 relative border-t border-neutral-100">
+                    <div className="container mx-auto px-4 max-w-6xl">
+                        <div className="text-center mb-16 max-w-2xl mx-auto">
+                            <h2 className="text-3xl md:text-4xl font-extrabold text-neutral-900 tracking-tight mb-4">The UniLink Advantage</h2>
+                            <p className="text-neutral-500 text-lg">Leaving traditional job boards in the dust.</p>
+                        </div>
+
+                        <div className="grid md:grid-cols-3 gap-8">
+                            <div className="bg-white rounded-2xl p-8 border border-neutral-100 hover:shadow-md transition-shadow text-center flex flex-col items-center">
+                                <div className="w-16 h-16 bg-primary-50 text-primary-600 rounded-2xl flex items-center justify-center mb-6">
+                                    <Crosshair className="w-8 h-8" />
+                                </div>
+                                <h3 className="text-xl font-bold text-neutral-900 mb-3">Campus Gigs</h3>
+                                <p className="text-neutral-600 leading-relaxed text-sm">
+                                    Don't have the time for a full-time role? Pick up short-term <strong>Gigs</strong> straight from employers. Earn cash, build your portfolio, and gain real-world experience on your own time.
+                                </p>
+                            </div>
+                            <div className="bg-white rounded-2xl p-8 border border-neutral-100 hover:shadow-md transition-shadow text-center flex flex-col items-center">
+                                <div className="w-16 h-16 bg-teal-50 text-teal-600 rounded-2xl flex items-center justify-center mb-6">
+                                    <Users className="w-8 h-8" />
+                                </div>
+                                <h3 className="text-xl font-bold text-neutral-900 mb-3">Student-Centric Network</h3>
+                                <p className="text-neutral-600 leading-relaxed text-sm">
+                                    Platforms like LinkedIn cater to seniors with decades of experience. UniLink is built exclusively for students. We skip the noise and connect you with employers who want to hire emerging talent.
+                                </p>
+                            </div>
+                            <div className="bg-white rounded-2xl p-8 border border-neutral-100 hover:shadow-md transition-shadow text-center flex flex-col items-center">
+                                <div className="w-16 h-16 bg-rose-50 text-rose-600 rounded-2xl flex items-center justify-center mb-6">
+                                    <ShieldCheck className="w-8 h-8" />
+                                </div>
+                                <h3 className="text-xl font-bold text-neutral-900 mb-3">Verified Ecosystem</h3>
+                                <p className="text-neutral-600 leading-relaxed text-sm">
+                                    No scam postings or MLM schemes like you often find on massive job boards. Every student is verified with a .edu email, and every employer is vetted.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 {/* Feature Highlights deep dive */}
-                <section className="py-24 bg-neutral-50/50 border-t border-neutral-100 overflow-hidden relative">
+                <section className="py-24 bg-white border-t border-neutral-100 overflow-hidden relative">
                     <div className="container mx-auto px-4 max-w-6xl">
                         <div className="grid md:grid-cols-2 gap-16 items-center">
                             <div>

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { BookOpen, Search, UserCheck, ShieldCheck, ChevronRight, TrendingUp } from "lucide-react"
+import { BookOpen, Search, UserCheck, ShieldCheck, ChevronRight, TrendingUp, Building2, Target, Zap } from "lucide-react"
 
 export default function EmployersPage() {
     return (
@@ -59,29 +59,35 @@ export default function EmployersPage() {
 
                             {/* Feature 1 */}
                             <div className="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-sm border border-neutral-100 hover:shadow-md transition-shadow">
-                                <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-6">
-                                    <ShieldCheck className="w-8 h-8" />
+                                <div className="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center mb-6">
+                                    <Building2 className="w-8 h-8" />
                                 </div>
-                                <h3 className="text-xl font-bold mb-3">Verified Student Status</h3>
-                                <p className="text-neutral-600 leading-relaxed text-sm">Every applicant is verified via their university .edu email. Know exactly who you are interviewing.</p>
+                                <h3 className="text-xl font-bold mb-3">Direct Campus Access</h3>
+                                <p className="text-neutral-600 leading-relaxed text-sm">
+                                    Why wait for a career fair? UniLink gives you a direct pipeline to verified students actively looking for internships, gigs, and entry-level roles.
+                                </p>
                             </div>
 
                             {/* Feature 2 */}
                             <div className="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-sm border border-neutral-100 hover:shadow-md transition-shadow">
-                                <div className="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center mb-6">
-                                    <UserCheck className="w-8 h-8" />
+                                <div className="w-16 h-16 bg-orange-50 text-orange-600 rounded-full flex items-center justify-center mb-6">
+                                    <Target className="w-8 h-8" />
                                 </div>
-                                <h3 className="text-xl font-bold mb-3">Skill-First Matching</h3>
-                                <p className="text-neutral-600 leading-relaxed text-sm">Target students based on specific course completions, declared majors, and technical proficiencies.</p>
+                                <h3 className="text-xl font-bold mb-3">Skill-First Sourcing</h3>
+                                <p className="text-neutral-600 leading-relaxed text-sm">
+                                    Filter candidates by specific majors, completed courses, and technical skills. You get highly targeted matches so you don't waste time on unqualified applicants.
+                                </p>
                             </div>
 
                             {/* Feature 3 */}
                             <div className="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-sm border border-neutral-100 hover:shadow-md transition-shadow">
-                                <div className="w-16 h-16 bg-teal-50 text-teal-600 rounded-full flex items-center justify-center mb-6">
-                                    <TrendingUp className="w-8 h-8" />
+                                <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mb-6">
+                                    <Zap className="w-8 h-8" />
                                 </div>
-                                <h3 className="text-xl font-bold mb-3">Reduce Hiring Costs</h3>
-                                <p className="text-neutral-600 leading-relaxed text-sm">Save thousands on campus recruitment trips. Connect with pre-vetted campus talent digitally year-round.</p>
+                                <h3 className="text-xl font-bold mb-3">Post Gigs &amp; Bounties</h3>
+                                <p className="text-neutral-600 leading-relaxed text-sm">
+                                    Need a short-term project done fast? Post campus gigs to offload work while testing potential candidates in the real world before committing to a full-time hire.
+                                </p>
                             </div>
 
                         </div>
